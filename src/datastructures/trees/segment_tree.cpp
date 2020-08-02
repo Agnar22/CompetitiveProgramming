@@ -93,6 +93,10 @@ class SegmentTree {
                 throw "Invalid segment, l_idx and r_idx should both be positive numbers lower than the number of leaves.";
             return reduce(1, 0, num_leaves - 1, l_idx, r_idx);
         }
+
+        std::vector<T> get_tree() {
+            return tree;
+        }
 };
 
 int add(int& a, int& b) {
