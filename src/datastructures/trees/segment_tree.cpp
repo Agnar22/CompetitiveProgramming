@@ -23,14 +23,14 @@ class SegmentTree {
         std::vector<T> tree;
         std::function<T(T&, T&)> aggregate;
 
-        void build(int p, int L, int R, std::vector<T> &leaves) {
-            if (L == R) {
-                tree[p] = leaves[L];
+        void build(int node, int leaf_l, int leaf_r, std::vector<T> &leaves) {
+            if (leaf_l == leaf_r) {
+                tree[node] = leaves[leaf_l];
             } else {
-                int p1 = left_child(p), p2 = right_child(p);
-                build(left_child(p), L, (L + R) / 2, leaves);
-                build(right_child(p), ((L + R) / 2) + 1, R, leaves);
-                tree[p] = aggregate(tree[p1], tree[p2]);
+                int p1 = left_child(node), p2 = right_child(node);
+                build(left_child(node), leaf_l, (leaf_l + leaf_r) / 2, leaves);
+                build(right_child(node), ((leaf_l + leaf_r) / 2) + 1, leaf_r, leaves);
+                tree[node] = aggregate(tree[p1], tree[p2]);
             }
         }
 
