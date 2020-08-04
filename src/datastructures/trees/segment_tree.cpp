@@ -6,7 +6,7 @@
 
     Segment tree
 
-    Initialization  -   O(nlog(n))
+    Initialization  -   O(n)
     Update          -   O(log(n))
     Range query     -   O(log(n))
 
