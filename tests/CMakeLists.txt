@@ -1,3 +1,3 @@
-add_executable(do_tests do_tests.cpp segment_tree_tests.cpp)
-target_link_libraries(do_tests PUBLIC source gtest)
-
+add_executable(segment_tree_tests do_tests.cpp segment_tree_tests.cpp)
+target_link_libraries(segment_tree_tests PUBLIC source gtest)
+add_test(NAME SEGMENT_TREE_TESTS COMMAND segment_tree_tests WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
